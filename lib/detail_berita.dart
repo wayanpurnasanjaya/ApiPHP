@@ -27,8 +27,7 @@ class _DetailBeritaState extends State<DetailBerita> {
             ),
             Text(
               widget.listBerita.isi.toString(),
-              textAlign: TextAlign.start,
-// style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.start, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ],
         ),

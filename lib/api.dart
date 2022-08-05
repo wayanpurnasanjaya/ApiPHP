@@ -1,2 +1,2 @@
-const String baseUrl = "http://192.168.43.86:8080/db_berita";
+const String baseUrl = "https://meblanjo.000webhostapp.com/";
 const String imageUrl = "baseUrl/images";

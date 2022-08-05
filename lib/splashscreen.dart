@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:apiphp/main.dart';
 import 'package:apiphp/session_manager.dart';
+import 'package:apiphp/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,10 +16,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 3), () {
       sessionManager.getSession().then((value) {
         if (value != null) {
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (_) => const MenuTab()),
-                  (route) => false);
+          // Navigator.pushAndRemoveUntil(
+          //     context,
+          //     MaterialPageRoute(builder: (_) => const MenuTab()),
+          //         (route) => false);
         } else {
           Navigator.pushAndRemoveUntil(
               context,

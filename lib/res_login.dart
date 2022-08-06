@@ -1,34 +1,41 @@
-import 'dart:convert';
-ResLogin resLoginFromJson(String str)=>ResLogin.fromJson(json.decode(str));
-String resLoginToJson(ResLogin data)=>json.encode(data.toJson());
+// To parse this JSON data, do
+//
+//     final resLogin = resLoginFromJson(jsonString);
 
-class ResLogin{
+import 'dart:convert';
+
+ResLogin resLoginFromJson(String str) => ResLogin.fromJson(json.decode(str));
+
+String resLoginToJson(ResLogin data) => json.encode(data.toJson());
+
+class ResLogin {
   ResLogin({
-   required this.value,
-   required this.message,
-   required this.username,
-   required this.fullname,
-   required this.id,
-});
+    required this.value,
+    required this.message,
+    required this.username,
+    required this.nama,
+    required this.idUser,
+  });
 
   int value;
   String message;
   String username;
-  String fullname;
-  String id;
+  String nama;
+  String idUser;
 
-  factory ResLogin.fromJson(Map<String,dynamic>json)=>ResLogin(
-    value:json["value"],
+  factory ResLogin.fromJson(Map<String, dynamic> json) => ResLogin(
+    value: json["value"],
     message: json["message"],
     username: json["username"],
-    fullname: json["fullname"],
-    id: json["id"],
+    nama: json["nama"],
+    idUser: json["id_user"],
   );
-  Map<String, dynamic>toJson()=>{
-    "value":value,
-    "message":message,
-    "username":username,
-    "fullname":fullname,
-    "id":id,
+
+  Map<String, dynamic> toJson() => {
+    "value": value,
+    "message": message,
+    "username": username,
+    "nama": nama,
+    "id_user": idUser,
   };
 }

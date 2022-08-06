@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 include "koneksi.php";
 $queryResult = $connect->query("SELECT * FROM tb_berita");
 $result = array();

@@ -14,7 +14,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool isLoading = false;
   TextEditingController username = TextEditingController();
-  TextEditingController fullname = TextEditingController();
+  TextEditingController full_name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   Future<ResRegister?> registerUser() async {
@@ -24,8 +24,8 @@ class _RegisterPageState extends State<RegisterPage> {
       });
       var res = await http.post(Uri.parse("$baseUrl/register.php"), body: {
         "username": username.text,
-        "fullname": fullname.text,
         "email": email.text,
+        "full_name": full_name.text,
         "password": password.text
       });
       ResRegister data = resRegisterFromJson((res.body));
@@ -87,30 +87,17 @@ class _RegisterPageState extends State<RegisterPage> {
     const SizedBox(
     ),
     TextFormField(
-    controller: username,
-    decoration: InputDecoration(
-    hintText: "Username",
-    fillColor: Colors.grey.withOpacity(0.2),
-    filled: true,
-    prefixIcon: const Icon(Icons.person),
-    border: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(20),
-    borderSide: BorderSide.none)),
+      controller: username,
+      decoration: InputDecoration(
+      hintText: "Username",
+      fillColor: Colors.grey.withOpacity(0.2),
+     filled: true,
+      prefixIcon: const Icon(Icons.person),
+      border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(20),
+      borderSide: BorderSide.none)),
     ),
-    const SizedBox(
-    height: 25,
-    ),
-    TextFormField(
-    controller: fullname,
-    decoration: InputDecoration(
-    hintText: "Fullname",
-    fillColor: Colors.grey.withOpacity(0.2),
-    filled: true,
-    prefixIcon: const Icon(Icons.person),
-    border: OutlineInputBorder(
-    borderRadius: BorderRadius.circular(20),
-    borderSide: BorderSide.none)),
-    ),
+
     const SizedBox(
     height: 25,
     ),
@@ -126,6 +113,20 @@ class _RegisterPageState extends State<RegisterPage> {
     borderRadius: BorderRadius.circular(20),
     borderSide: BorderSide.none)),
     ),
+      const SizedBox(
+        height: 25,
+      ),
+      TextFormField(
+        controller: full_name,
+        decoration: InputDecoration(
+            hintText: "Full_name",
+            fillColor: Colors.grey.withOpacity(0.2),
+            filled: true,
+            prefixIcon: const Icon(Icons.person),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide.none)),
+      ),
     const SizedBox(
     height: 25,
     ),

@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:apiphp/res_login.dart';
 import 'package:apiphp/session_manager.dart';
 import 'package:apiphp/res_register.dart';
+import 'package:apiphp/news_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -30,13 +31,14 @@ class _LoginScreenState extends State<LoginScreen> {
       if(data.value == 1){
         setState((){
           isLoading = false;
-          sessionManager.saveSession(data.value, data.id, data.fullname, data.username);
-          // Navigator.pushAndRemoveUntil(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (_)=>const MenuTab(),
-          //   ),
-          //     (route)=>false);
+         // print("data: " + data.value.toString() +data.id +data.fullname +data.username );
+          sessionManager.saveSession(data.value, data.idUser, data.nama, data.username);
+          Navigator.pushAndRemoveUntil(
+             context,
+             MaterialPageRoute(
+               builder: (_)=>const NewsPage(),
+             ),
+               (route)=>false);
         });
       }else if(data.value == 2){
         setState((){

@@ -1,4 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 require "koneksi.php";
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$response = array();
@@ -13,7 +16,7 @@ require "koneksi.php";
 	$response['message'] = "Login berhasil";
 	$response['username'] = $result['username'];
 	$response['nama'] = $result['full_name'];
-	$response['id']=$result["id"];
+	$response['id_user']=$result["id_user"];
 	echo json_encode($response);
 	} else {
 		$response['value'] = 0;

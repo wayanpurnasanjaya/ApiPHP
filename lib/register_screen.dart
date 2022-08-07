@@ -14,8 +14,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool isLoading = false;
   TextEditingController username = TextEditingController();
-  TextEditingController full_name = TextEditingController();
   TextEditingController email = TextEditingController();
+  TextEditingController full_name = TextEditingController();
   TextEditingController password = TextEditingController();
   Future<ResRegister?> registerUser() async {
     try {

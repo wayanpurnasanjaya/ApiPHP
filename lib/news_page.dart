@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:apiphp/session_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:apiphp/api.dart';
 import 'package:http/http.dart' as http;
@@ -84,12 +85,20 @@ class _NewsPageState extends State<NewsPage> {
     return json.decode(response.body);
   }
 
+  SessionManager sessionManager = SessionManager();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('Apps Berita'),
           backgroundColor: Colors.brown,
+          actions: <Widget>[
+            IconButton(icon: new Icon(Icons.logout_outlined,
+                color: Colors.white), onPressed: () {
+              sessionManager.clearSession(context);
+            },),
+          ],
         ),
         body: FutureBuilder<List>(
           future: getData(),
@@ -118,10 +127,9 @@ class ItemList extends StatelessWidget {
           padding: EdgeInsets.all(10.0),
           child: GestureDetector(
             onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return DetailBerita(listBerita: list, index: index,);
-          }));
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailBerita(listBerita: list, index: index,);
+              }));
             },
             child: Card(
               child: ListTile(
